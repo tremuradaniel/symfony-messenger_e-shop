@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Message\Command\CreateOrder;
 use App\Message\Query\SearchQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -62,12 +63,9 @@ class EshopController extends AbstractController
         $productID = '123';
         $productName = 'product name';
         $productAmount = 2;
-        // saave the order in the database
+        // save the order in the database
 
-        // send an email to client confirming the order (product name, amount, price, etc.)
-
-        // update warehouse database to keep stock up to date in physical stores
-        sleep(4);
+        $this->messageBus->dispatch(new CreateOrder($productID, $productAmount));
         return new Response(sprintf('Your successfully ordered your product!', $productName));
     }
 }
