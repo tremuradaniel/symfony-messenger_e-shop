@@ -1,7 +1,7 @@
 # e-shop|PRODUCER (Symfony Messenger)
 
 ## Description
-- RabbitMQ & CQRS with Symfony Messenger
+- RabbitMQ & CQRS (Command Query Responsibility Segregation) with Symfony Messenger
 - Symfony 4.3.*
 
 ## Commands
