@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Message\Command\CreateOrder;
+use App\Message\Command\SignUpSMS;
 use App\Message\Query\SearchQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,8 +51,7 @@ class EshopController extends AbstractController
     public function signUpSMS(): Response
     {
         $phoneNumber = '111 222 333';
-        // connect to api of external sms service provider
-        sleep(2);
+        $this->messageBus->dispatch(new SignUpSMS(($phoneNumber)));
         return new Response(sprintf('Your phone number %s successfully signed up for SMS newsletter!', $phoneNumber));
     }
 
