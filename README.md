@@ -7,3 +7,4 @@
 
 ## Commands
 - ```php bin/console server:run``` (quick start)
+= ```php bin/console messenger:consume``` (consume messages -- to be run from consumer, not producer)
